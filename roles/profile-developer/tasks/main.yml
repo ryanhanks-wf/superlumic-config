@@ -23,13 +23,12 @@
   homebrew: name=dart-lang/dart/dart state=latest install_options=with-dartium,with-content-shell
 
 - name: install java (for maven)
-  homebrew_cask: java
+  homebrew_cask: name=java
 
 - name: install maven
-  homebrew: maven
+  homebrew: name=maven
 
 - name: install developer cask applications
   homebrew_cask: name={{item}} state=present
   with_items:
-    - java
     - iterm2

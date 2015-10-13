@@ -13,7 +13,6 @@
     - chromedriver
     - docker
     - freetype
-    - maven
     - nginx
     - ngrok
     - pyenv
@@ -23,8 +22,10 @@
 - name: install dart and dartium
   homebrew: name=dart-lang/dart/dart state=latest install_options=with-dartium,with-content-shell
 
-- name: install maven
+- name: install java (for maven)
   homebrew_cask: java
+
+- name: install maven
   homebrew: maven
 
 - name: install developer cask applications

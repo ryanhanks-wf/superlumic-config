@@ -8,19 +8,22 @@
   with_items:
     - wget
     - pwgen
-    - xmlstarlet
     - htop-osx
-    - watch
-    - rsync
-    - git-flow
     - ant
+    - chromedriver
+    - dart
+    - dartium
+    - docker
+    - freetype
+    - maven
+    - nginx
+    - ngrok
+    - pyenv
+    - pyenv-virtualenv
+    - rbenv
 
 - name: install developer cask applications
   homebrew_cask: name={{item}} state=present
   with_items:
-    - imageoptim
-    - phpstorm
-    - sequel-pro
-    - java6
-    - java7
     - java
+    - iterm2

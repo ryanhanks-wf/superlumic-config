@@ -5,6 +5,7 @@
 
 - name: install developer brew applications
   homebrew: name={{item}} state=latest
+  homebrew_tap: tap=dart-lang/homebrew-dart state=present
   with_items:
     - wget
     - pwgen
@@ -15,6 +16,7 @@
     - dartium
     - docker
     - freetype
+    - java
     - maven
     - nginx
     - ngrok

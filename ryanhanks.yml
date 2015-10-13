@@ -8,31 +8,34 @@
       homebrew_cask: name={{item}} state=present
       with_items:
         - spotify
-        - istat-menus
         - dropbox
-        - kaleidoscope
-        - alfred
-        - hazel
-        - sonos
-        - tower
-        - skype
-        - bartender
-        - things
-    - name: create ssh directory
-      become: yes
-      file:
-        path: "{{item}}"
-        state: directory
-        owner: root
-        group: wheel
-        mode: 0777
-      with_items:
-        - /etc/ssh
-    - name: personal ssh config
-      become: yes
-      copy:
-        src: files/ssh_config
-        dest: /etc/ssh_config
+        - karabiner
+        - witch
+        - pycharm
+        - google-chrome
+        - hipchat
+        - omnifocus
+        - jing
+        - onepassword
+        - virtualbox
+        - vagrant
+        - vmware-fusion
+        - totalspaces
+    # - name: create ssh directory
+    #   become: yes
+    #   file:
+    #     path: "{{item}}"
+    #     state: directory
+    #     owner: root
+    #     group: wheel
+    #     mode: 0777
+    #   with_items:
+    #     - /etc/ssh
+    # - name: personal ssh config
+    #   become: yes
+    #   copy:
+    #     src: files/ssh_config
+    #     dest: /etc/ssh_config
     - name: add to sudoers without password
       become: yes
       lineinfile: >
@@ -49,9 +52,9 @@
     - profile-developer
 
   vars:
-    - computername: spectr
-    - git_user_name: Roderik van der Veer
-    - git_user_email: roderik.van.der.veer@kunstmaan.be
+    - computername: WF13482
+    - git_user_name: Ryan Hanks
+    - git_user_email: ryan.hanks@workiva.com
     - sublime_packages:
         - dest: "SideBarEnhancements"
           repo: "https://github.com/titoBouzout/SideBarEnhancements"

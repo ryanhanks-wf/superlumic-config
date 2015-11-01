@@ -4,6 +4,20 @@
   connection: local
 
   tasks:
+    - name: register the current shell
+      shell: echo $SHELL
+      register: current_shell_result
+      changed_when: False
+    - name: clone my dotfiles
+      git: repo=git@github.com:ryanhanks-wf/dotfiles dest=/Users/ryanhanks/.dotfiles accept_hostkey=yes
+    - name: bootstrap dotfiles
+      shell: /Users/ryanhanks/.dotfiles/script/bootstrap
+      register: command_result
+      failed_when: "'FAILED' in command_result.stdout"
+    - name: change shell for the current user
+      become: yes
+      shell: chsh -s /bin/zsh {{ lookup('env','USER') }}
+      when: current_shell_result.stdout != "/bin/zsh"
     - name: install personal cask applications
       homebrew_cask: name={{item}} state=present
       with_items:
